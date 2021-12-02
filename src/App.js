@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import "./App.css";
+import AddPost from "./Components/AddPost";
+import PostList from "./Components/PostList";
+import Filter from "./Components/Filter";
+import gmcTodo from "../src/gmcTodo.png";
+import logo2 from "../src/logo2.png"
 function App() {
+  const [filter, setFilter] = useState("All");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='logo-title'>
+    
+       <img
+          width="100"
+          height="80"
+          src={gmcTodo}
+          alt="add posts"
+        />
+      <h1 style={{ color: "#E50914" }}>
+       
+        GOMYCODE TODO APP
+      </h1>
+      <img
+          width="100"
+          height="80"
+          src={logo2}
+          alt="add posts"
+        />
+      </div>
+      <AddPost />
+      <Filter setFilter={setFilter} filter={filter} />
+      <PostList filter={filter} />
     </div>
   );
 }
